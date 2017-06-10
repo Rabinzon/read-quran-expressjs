@@ -1,0 +1,172 @@
+/*
+     * Amiri (Arabic) http://www.google.com/webfonts/earlyaccess
+     */
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Slanted.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Slanted.eot?#iefix) format('embedded-opentype'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Slanted.woff2) format('woff2'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Slanted.woff) format('woff'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Slanted.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Bold.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Bold.eot?#iefix) format('embedded-opentype'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Bold.woff2) format('woff2'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Bold.woff) format('woff'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-BoldSlanted.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-BoldSlanted.eot?#iefix) format('embedded-opentype'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-BoldSlanted.woff2) format('woff2'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-BoldSlanted.woff) format('woff'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-BoldSlanted.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Regular.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Regular.eot?#iefix) format('embedded-opentype'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Regular.woff2) format('woff2'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Regular.woff) format('woff'),
+  url(//themes.googleusercontent.com/static/fonts/earlyaccess/amiri/v2/Amiri-Regular.ttf) format('truetype');
+}
+.original-text {
+  font-family: "Amiri",'Times New Roman';
+  font-size: 200%;
+  /*direction: rtl;*/
+  display: block;
+  padding: 10px 0;
+  line-height: 2em;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Noto Serif","Times New Roman",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+h1 {
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 50px;
+}
+h3 {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 40px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.starter-template li {
+  text-align: left;
+}
+.lead {
+  font-family: 'Noto Serif',"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-style: italic;
+  display: block;
+  margin: 5px auto;
+  width: 70%;
+  text-align: center;
+  font-size: 16px;
+}
+.ayat a {
+  color: #000;
+}
+
+.ayat a:hover {
+  text-decoration: none;
+}
+.ayat > .ayat-text--explanation,
+.ayat > .ayat-text--addition
+{
+  font-size: 90%;
+  font-style: italic;
+}
+.sura {
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+.sura h2 {
+  text-align: left;
+}
+.links{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  column-gap: 49px;
+  column-width: 198px;
+}
+
+body {
+  padding-top: 51px;
+  background: url('/images/debut_light.png');
+}
+
+.top {
+  background: #000;
+  opacity: 0.2;
+  height: 100vh;
+  width: 50px;
+  position: fixed;
+  transition: all 200ms;
+}
+
+.top:hover {
+  opacity: 0.4;
+  transition: all 200ms;
+}
+
+.navbar-default {
+  background-color: rgba(248, 248, 248, 0.8);
+  border-color: #e7e7e7;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-panel {
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  padding: 10px;
+}
+
+.to-top{
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  padding: 5px 5px 0;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-radius: 5px;
+}
+
+.wrapper {
+  width: 500px;
+  margin: auto;
+}

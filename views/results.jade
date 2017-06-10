@@ -1,0 +1,14 @@
+extends layout
+block content
+    .container
+        .sura
+            h2: stroke Найдено:
+                span!=" "
+                strong=ayats.length
+            each item in ayats
+                p.ayat: a(href='/krac/'+item.chron + '#' + item.order).ayat
+                    kbd!= item.surah + ':' + item.order
+                    span!=" "
+                    span!=item.text
+
+            br

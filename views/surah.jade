@@ -1,0 +1,39 @@
+extends layout
+block content
+    .container
+        .sura
+            h2=surah + ' ' + title
+            p: strong Во имя Аллаха Милостивого, Милосердного!
+            br
+            each item in ayats
+                p.ayat(id=item.order)
+                    kbd!=item.surah + ':' + item.order
+                    span!=' '
+                    span!=item.text
+            br
+            nav(aria-label='...')
+                ul.pager
+                    if chron - 1 > 0
+                        li.previous
+                            a(href='/krac/' + (chron - 1))
+                                span(aria-hidden='true') ←
+                                |  предыдущая
+                    else
+                        li.previous.disabled
+                            a(href='#')
+                                span(aria-hidden='true') ←
+                                |  предыдущая
+
+                    if (chron + 1) < 115
+                        li.next
+                            a(href=(href = '/krac/' + (chron + 1)))
+                                | следующая
+                                span(aria-hidden='true') →
+                    else
+                        li.next.disabled
+                            a(href='#')
+                                | следующая
+                                span(aria-hidden='true') →
+
+            br
+            br
