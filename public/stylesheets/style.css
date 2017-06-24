@@ -89,7 +89,22 @@ h3 {
 .ayat a {
   color: #000;
 }
-
+.ayat {
+  margin: 0;
+  padding: 5px 0;
+  position: relative;
+}
+.ayat.selected:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: 3px;
+  background: rgba(9, 9, 9, 0.13);
+}
 .ayat a:hover {
   text-decoration: none;
 }

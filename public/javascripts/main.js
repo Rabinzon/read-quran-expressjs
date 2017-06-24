@@ -15,9 +15,10 @@ function init() {
 
     function scrollByHash() {
         var hash = window.location.hash;
-        var block = $(hash);
-        if (block.length) {
-            scrollToAnchor(block.offset().top - 70);
+        var $block = $(hash);
+        if ($block.length) {
+            $block.addClass('selected');
+            scrollToAnchor($block.offset().top - 70);
         }
     }
 
