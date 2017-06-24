@@ -1,10 +1,13 @@
 extends layout
+block title
+    title Священный Коран - поиск
 block content
     .container
         .sura
             h2: stroke Найдено:
                 span!=" "
                 strong=ayats.length
+            p.text-muted.text-left Аяты отсортированы в хронологическом порядке.
             each item in ayats
                 p.ayat: a(href='/krac/'+item.chron + '#' + item.order).ayat
                     kbd!= item.surah + ':' + item.order
