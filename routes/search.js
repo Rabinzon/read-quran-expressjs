@@ -21,8 +21,7 @@ const filter = (results, regExp) => {
 
 const handler = (req, res) => {
     const q = req.body.query;
-    console.log(q);
-    const regExp = new RegExp(`(${q})`, "ig");
+    const regExp = new RegExp(`(${q.trim().toLowerCase()})`, "ig");
     model
         .find({'ayats.text': regExp})
         .sort('chron')
