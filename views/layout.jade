@@ -15,14 +15,16 @@ html
 
   body
     +header
+    .to-top-btn
+      button.btn.js-to-top-btn наверх
     block content
 
     footer.footer
       .container
         .flex
-          p.text-muted.text-left Священный Коран в хронологическом порядке
-          p.text-center.text-muted 2017
+          p.text-muted.text-left 2017.
             span!=' '
-            a(href='http://read-quran.ru') read-quran.ru
+          p.text-muted.text-right
+            a(href='http://read-quran.ru'): spna.text-muted Коран в хронологическом порядке
 
     script(src='/javascripts/main.js')
