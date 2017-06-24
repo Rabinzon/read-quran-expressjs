@@ -72,7 +72,7 @@ function init() {
         prevScrollPos = scrollY;
     }
 
-    $(selectors.ayat).on('copy', copy);
+    // $(selectors.ayat).on('copy', copy);
     $(selectors.toTop).on('click', scrollToAnchor);
     // $(selectors.continue).on('click', redirect);
     $(window).on('scroll', onScroll);
