@@ -170,3 +170,17 @@ body {
   width: 500px;
   margin: auto;
 }
+.to-top-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms;
+}
+
+.to-top-button .to-top-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 200ms;
+}

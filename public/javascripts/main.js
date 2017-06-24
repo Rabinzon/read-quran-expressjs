@@ -3,12 +3,13 @@ function init() {
 
     var selectors = {
         ayat: '.ayat',
-        continue: '.js-сontinue-btn'
+        continue: '.js-сontinue-btn',
+        toTop: '.js-to-top-btn'
     };
 
     function scrollToAnchor(position) {
         $body.animate({
-            scrollTop: position
+            scrollTop: position | 0
         }, 1000);
     }
 
@@ -55,13 +56,26 @@ function init() {
         if (!path) {
             return;
         }
-        console.log(window.location);
         window.localStorage.setItem('readquran.ru/position', document.body.scrollTop);
         window.localStorage.setItem('readquran.ru/path', path);
     }
 
+    var prevScrollPos = false;
+
+    function onScroll() {
+        var scrollY  = window.scrollY;
+        if (prevScrollPos >= window.scrollY) {
+            $body.addClass('to-top-button');
+        } else {
+            $body.removeClass('to-top-button');
+        }
+        prevScrollPos = scrollY;
+    }
+
     $(selectors.ayat).on('copy', copy);
+    $(selectors.toTop).on('click', scrollToAnchor);
     // $(selectors.continue).on('click', redirect);
+    $(window).on('scroll', onScroll);
     scrollByHash();
 }
 
