@@ -4,10 +4,19 @@ block title
 block content
     .container
         .sura
-            h2: stroke Найдено:
-                span!=" "
-                strong=ayats.length
-            p.text-muted.text-left Аяты отсортированы в хронологическом порядке.
+            if ayats.length > 0
+                h2: stroke Найдено:
+                    span!=" "
+                    strong=ayats.length
+                if ayats.length > 1
+                    p.text-muted.text-left Аяты отсортированы в хронологическом порядке.
+            else
+                h2.text-muted.text-left По запросу
+                    span!=" "
+                    strong #{query}
+                    span!=" "
+                    span ничего не найдено.
+                p.text-muted.text-left Попробуйте скорректировать ваш запрос.
             each item in ayats
                 p.ayat: a(href='/krac/'+item.chron + '#' + item.order).ayat
                     kbd!= item.surah + ':' + item.order
