@@ -65,7 +65,7 @@ function init() {
 
     function onScroll() {
         var scrollY  = window.scrollY;
-        if (prevScrollPos >= window.scrollY) {
+        if (scrollY > 130 && prevScrollPos >= window.scrollY) {
             $body.addClass('to-top-button');
         } else {
             $body.removeClass('to-top-button');
