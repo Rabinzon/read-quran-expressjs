@@ -63,7 +63,7 @@ h2 {
   font-size: 22px;
   text-align: center;
   padding-bottom: 10px;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 h3 {
   font-size: 18px;
@@ -203,4 +203,19 @@ body {
   opacity: 1;
   pointer-events: auto;
   transition: all 200ms;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.page-wrapper {
+  flex: 1;
 }
