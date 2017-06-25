@@ -18,4 +18,4 @@ block content
                     ol.list
                         each item in data
                             li
-                                a(href='/krac/' + item.chron)!=(item.surah) + ' ' + item.title
+                                a(href=item.href)!=item.text

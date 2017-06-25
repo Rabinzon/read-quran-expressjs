@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const model = require('../models/krac');
+// const model = require('../models/krac');
+const json = require('../views/index.json');
 
 const handler = (req, res) => {
-    model.find({})
-        .sort('chron')
-        .exec((err, data) => res.render('index', {data}))
+    res.render('index', {data:json})
 };
 
 router.get('/', handler);
