@@ -20,14 +20,14 @@ const filter = (results, regExp) => {
 };
 
 const handler = (req, res) => {
-    const q = req.body.query;
-    const regExp = new RegExp(`(${q.trim().toLowerCase()})`, "ig");
+    const { query } = req.body;
+    const regExp = new RegExp(`(${query.trim().toLowerCase()})`, "ig");
     model
         .find({'ayats.text': regExp})
         .sort('chron')
         .exec((err, results) => {
             if (results) {
-                res.render('results', {ayats: filter(results, regExp)});
+                res.render('results', {query, ayats: filter(results, regExp)});
                 return;
             }
             res.send(404, null);
