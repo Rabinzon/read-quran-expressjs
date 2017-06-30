@@ -4,10 +4,9 @@ services:
   server:
       build: .
       ports:
-        - "4444:8080"
+        - "83:3000"
       links:
         - mongo
-
       depends_on:
         - mongo
 
@@ -15,7 +14,6 @@ services:
     image: "mongo:3.4"
     restart: always
     volumes:
-      - ./data:/data/db
       - ./backup:/backup
     ports:
       - "27012:27017"

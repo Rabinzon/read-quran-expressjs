@@ -1,3 +1,3 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://read-quran.ru:27012/quran');
+mongoose.connect('mongodb://mongo:27017/quran');
