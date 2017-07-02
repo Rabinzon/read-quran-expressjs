@@ -7,7 +7,8 @@ function init() {
         continue: '.js-сontinue-btn',
         toTop: '.js-to-top-btn',
         bookmark: '.js-to-bookmark-btn',
-        continueReading: '.js-continue-reading'
+        continueReading: '.js-continue-reading',
+        bookmarkAlert: '.js-bookmark-alert'
     };
 
     function scrollToAnchor(position) {
@@ -56,7 +57,7 @@ function init() {
     }
 
     function getCurrentAyat() {
-        const scrollY = window.scrollY;
+        var scrollY = window.scrollY;
         return $(selectors.ayat)
             .toArray()
             .reduce((acc, cur) =>
@@ -65,12 +66,15 @@ function init() {
 
     function setBookmark() {
         var path = window.location.pathname;
-        if (!path) {
+        var current = getCurrentAyat();
+        var hash = $(current).attr('id');
+        if (!path || !hash) {
             return;
         }
-        const current = getCurrentAyat();
-        const hash = $(current).attr('id');
+
         window.localStorage.setItem('readquran.ru/path', path + '#' + hash);
+        $(selectors.bookmarkAlert).show();
+        setTimeout(() =>  $(selectors.bookmarkAlert).hide(), 2000);
     }
 
     function showBookmarkLink() {
@@ -84,8 +88,9 @@ function init() {
     var prevScrollPos = false;
 
     function onScroll() {
+        var path = window.location.pathname;
         var scrollY  = window.scrollY;
-        if (scrollY > 130 && (prevScrollPos >= scrollY)) {
+        if (path !== '/' && scrollY > 130 && (prevScrollPos >= scrollY)) {
             $body.addClass('to-top-button');
         } else {
             $body.removeClass('to-top-button');

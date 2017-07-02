@@ -233,6 +233,15 @@ body {
   display: none;
 }
 
+.alert-fixed {
+  position: fixed;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  left: 0;
+  display: none;
+}
+
 @media (max-width: 767px) {
   .flex-nav {
     display: flex;
