@@ -100,9 +100,6 @@ function init() {
     showBookmarkLink();
     $window.on('scroll', onScroll);
     scrollByHash();
-    $window.on('beforeunload', function() {
-        setBookmark();
-    })
 }
 
 $(document).ready(init);
