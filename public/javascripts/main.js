@@ -63,6 +63,10 @@ function init() {
         if (path != savedPath && /\/\w+\/\d+/.test(savedPath)) {
             $(selectors.continueReading).show();
         }
+
+        if (path !== '/') {
+            $('.js-to-bookmark-btn').show();
+        }
     }
 
     var prevScrollPos = false;
