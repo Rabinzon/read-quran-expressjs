@@ -60,7 +60,7 @@ function init() {
     function showBookmarkLink() {
         var path = window.location.pathname;
         var savedPath = window.localStorage.getItem('readquran.ru/path');
-        if (path != savedPath) {
+        if (path != savedPath && /\/\w+\/\d+/.test(savedPath)) {
             $(selectors.continueReading).show();
         }
     }
