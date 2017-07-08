@@ -8,7 +8,8 @@ function init() {
         toTop: '.js-to-top-btn',
         bookmark: '.js-to-bookmark-btn',
         continueReading: '.js-continue-reading',
-        bookmarkAlert: '.js-bookmark-alert'
+        bookmarkAlert: '.js-bookmark-alert',
+        orderBtn: '.js-order-btn'
     };
 
     function scrollToAnchor(position) {
@@ -26,28 +27,6 @@ function init() {
         }
     }
 
-   /* function copy(e) {
-        var text = window.getSelection().toString();
-        var surah = '';
-
-        var result = text
-            .split(/(\d+:\d+)|(\(\d+\))|(\.)/g)
-            .filter(t => {
-                if (/(\d+:\d+)/.test(t)) {
-                    surah += ' ' + t;
-                    return false;
-                } else if (/(\(\d+\)|(\.))/.test(t)) {
-                    return false;
-                }
-                return true;
-            })
-            .join('')
-        if (e.originalEvent.clipboardData) {
-            e.originalEvent.clipboardData.setData('text/plain', result + '\n' + surah);
-            e.preventDefault();
-        }
-    }*/
-
     function toBookmark() {
         var path = window.location.pathname;
         var savedPath = window.localStorage.getItem('readquran.ru/path');
@@ -60,8 +39,9 @@ function init() {
         var scrollY = window.scrollY;
         return $(selectors.ayat)
             .toArray()
-            .reduce((acc, cur) =>
-                (scrollY + 80) - $(cur).offset().top > 0 ? cur : acc);
+            .reduce(function(acc, cur) {
+                return (scrollY + 80) - $(cur).offset().top > 0 ? cur : acc;
+            });
     }
 
     function setBookmark() {
@@ -74,7 +54,7 @@ function init() {
 
         window.localStorage.setItem('readquran.ru/path', path + '#' + hash);
         $(selectors.bookmarkAlert).show();
-        setTimeout(() =>  $(selectors.bookmarkAlert).hide(), 2000);
+        setTimeout(function() {$(selectors.bookmarkAlert).hide()}, 2000);
     }
 
     function showBookmarkLink() {
@@ -98,13 +78,69 @@ function init() {
         prevScrollPos = scrollY;
     }
 
-    // $(selectors.ayat).on('copy', copy);
+    var orderBtnTexts = [
+        'суры в обычном порядке',
+        'суры в хроногическом порядке'
+    ];
+
+    var $orderBtn = $(selectors.orderBtn);
+    var $list = Array.prototype.slice.call($('.sures li'));
+    var $listOl = $('.sures ol');
+
+    function compare(attribute) {
+        return function (cur, next) {
+            var $cur = $(cur).find('a');
+            var $next = $(next).find('a');
+            var comparator = Number($cur.data(attribute)) > Number($next.data(attribute));
+
+            if(comparator) {
+                return 1;
+            }
+
+            if(!comparator) {
+                return -1;
+            }
+            return 0;
+        }
+    }
+
+    function setOrder() {
+        if ($orderBtn.text() === orderBtnTexts[0]) {
+            $orderBtn.text(orderBtnTexts[1]);
+            var result = $list.sort(compare('order'));
+
+            if (result.length === 114) {
+                $listOl.html(result);
+            }
+
+        } else {
+            $orderBtn.text(orderBtnTexts[0]);
+            var result = $list.sort(compare('chron'));
+
+            if (result.length === 114) {
+                $listOl.html(result);
+            }
+        }
+    }
+
+    function showOrderButton() {
+        var path = window.location.pathname;
+        if (path !== '/') {
+            $orderBtn.hide();
+        } else {
+            $orderBtn.show();
+        }
+    }
+
     $(selectors.toTop).on('click', scrollToAnchor);
     $(selectors.bookmark).on('click', setBookmark);
+    $orderBtn.on('click', setOrder);
     $(selectors.continueReading).on('click', toBookmark);
-    showBookmarkLink();
     $window.on('scroll', onScroll);
+
     scrollByHash();
+    showBookmarkLink();
+    showOrderButton();
 }
 
 $(document).ready(init);

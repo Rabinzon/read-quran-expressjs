@@ -16,6 +16,6 @@ block content
             .sures
                 small
                     ol.list
-                        each item in data
+                        each item, i in data
                             li
-                                a(href=item.href)!=item.text
+                                a(href=item.href data-chron=i+1, data-order=item.text.replace(/\D+/, ''))!=item.text

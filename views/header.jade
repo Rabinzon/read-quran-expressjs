@@ -14,6 +14,8 @@ mixin header()
                         .flex-nav
                             ul.nav.nav-pills
                                 li: a.continue-reading.js-continue-reading Продолжить чтение
+                            .oreder-btns
+                                button.btn.btn-info.js-order-btn суры в обычном порядке
                             form(action='/search/' method='post').navbar-form
                                 .input-group
                                     input.form-control(type='text', name='query', value=query, placeholder='Поиск')
